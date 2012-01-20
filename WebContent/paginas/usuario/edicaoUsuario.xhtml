@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head> 
+	<title>Usuário</title>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+		
+		   <h:outputLabel value="Alteração de Usuário" rendered="#{usuarioBean.estadoEdicao}"/>
+           <h:outputLabel value="Cadastro de Usuário" rendered="!#{usuarioBean.estadoEdicao}"/>
+           <br/>
+           Nome
+           <br/>
+           <p:inputText value="#{usuarioBean.usuario.nome}"/>
+           <br/>
+           Senha
+           <br/>
+           <p:password feedback="true" minLength="3" value="#{usuarioBean.usuario.senha}"/>
+           <br/>
+           <p:commandButton value="Salvar Edicao" action="#{usuarioBean.salvar}" rendered="#{usuarioBean.estadoEdicao}" ajax="false"/>
+           <p:commandButton value="Salvar Insercao" onclick="dlg.show()"  rendered="#{usuarioBean.estadoInsercao}"/>
+           <!--  rendered="!#{localPagamentoBean.estadoEdicao} -->
+           <h:outputText value=" "/>
+           <p:commandButton value="Cancelar" action="#{usuarioBean.cancelarEdicaoInclusao}" ajax="false"/>
+           
+           <!-- Deseja cadastrar outro usuario? -->
+		   <p:dialog header="Confirmação!" widgetVar="dlg" resizable="false">
+				<h:form>
+				    Deseja cadastrar um novo Usuário?
+					<h:panelGrid columns="2" style="margin-bottom:10px">
+						<p:commandButton value="Sim" action="#{usuarioBean.salvarEContinuar}" ajax="false" oncomplete="dlg.hide();" />
+						<p:commandButton value="Não" action="#{usuarioBean.salvar}" ajax="false" oncomplete="dlg.hide();" />
+					</h:panelGrid>					
+				</h:form>
+		   </p:dialog>
+			
+		   <p:growl id="growl" showDetail="true" />  
+		</h:form>
+	</f:view>
+</h:body>
+</html>
+

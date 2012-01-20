@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head> 
+	<title>Cadastro de Local de Pagamento</title>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+		
+		   <h:outputLabel value="Alteração de Local de Pagamento" rendered="#{localPagamentoBean.estadoEdicao}"/>
+           <h:outputLabel value="Cadastro de Local de Pagamento" rendered="#{localPagamentoBean.estadoInsercao}"/>
+           <br/>
+           Descrição
+           <br/>
+           <p:inputText value="#{localPagamentoBean.localPagamento.descricao}"/>
+           <br/>          
+           <p:commandButton value="Salvar" action="#{usuarioBean.salvar}" rendered="#{localPagamentoBean.estadoEdicao}" ajax="false"/>
+           <p:commandButton value="Salvar" onclick="dlg.show()" rendered="#{localPagamentoBean.estadoInsercao}"/>
+           <h:outputText value=" "/>
+           <p:commandButton value="Cancelar" action="#{localPagamentoBean.cancelarEdicaoInclusao}" ajax="false"/>
+           
+           <!-- Deseja cadastrar outro local de pagamento? -->
+		   <p:dialog header="Confirmação!" widgetVar="dlg" resizable="false">
+				<h:form>
+				    Deseja cadastrar um novo local de pagamento?
+					<h:panelGrid columns="2" style="margin-bottom:10px">
+						<p:commandButton value="Sim" action="#{localPagamentoBean.salvarEContinuar}" ajax="false" oncomplete="dlg.hide();" />
+						<p:commandButton value="Não" action="#{localPagamentoBean.salvar}" ajax="false" oncomplete="dlg.hide();" />
+					</h:panelGrid>					
+				</h:form>
+		   </p:dialog>
+			
+		   <p:growl id="growl" showDetail="true" />  
+		</h:form>
+	</f:view>
+</h:body>
+</html>
+

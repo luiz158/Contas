@@ -1,0 +1,4 @@
+-Alterar os escopos de session para request nos cruds
+-Comentar os beans
+-Adicionar um filtro para controle de usuarios
+-Adicionar layout padrao com facelets

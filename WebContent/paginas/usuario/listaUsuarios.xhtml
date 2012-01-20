@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head>
+	<!-- <link rel="stylesheet" href="paginas/css/padrao.css" type="text/css"/>   -->
+	<title>Usuário</title>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+	    	<p:growl id="growl" showDetail="true" />  
+		
+			<p:dataTable var="usuario" value="#{usuarioBean.usuarios}"
+				style="font-size: 70%; width: 500px;" paginator="true" rows="15">
+
+				<f:facet name="header">
+					<h:outputText value="Lista de Usuários - " />
+					<p:commandButton ajax="false" value="Adicionar novo Usuário"
+						action="#{usuarioBean.incluir}" />
+				</f:facet>
+
+				<p:column style="width: 60px;">
+					<f:facet name="header">  
+                    Id 
+                    </f:facet>
+					<h:outputText value="#{usuario.id}" />
+				</p:column>
+				<p:column style="width: 290px;">
+					<f:facet name="header">  
+                    Nome 
+                    </f:facet>
+					<h:outputText value="#{usuario.nome}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">  
+                    Ação 
+                    </f:facet>
+					<p:commandLink value="Editar" action="#{usuarioBean.editar}"
+						ajax="false">
+						<f:setPropertyActionListener value="#{usuario}"
+							target="#{usuarioBean.usuario}" />
+					</p:commandLink>
+					
+					<p:commandLink value=" Deletar" onclick="dlg.show()">
+					<f:setPropertyActionListener value="#{usuario}"
+						    	target="#{usuarioBean.usuario}" />
+					</p:commandLink>				
+				</p:column>
+			</p:dataTable>
+			<br/>
+			<p:commandLink ajax="false" value="Menu Principal" action="/paginas/index.xhtml"/>
+			
+			<!-- Confirma exclucao de registro -->
+			<p:dialog header="Atenção!" widgetVar="dlg" resizable="false">
+				<h:form>
+				    Confirma a exclução deste registro?
+					<h:panelGrid columns="2" style="margin-bottom:10px">
+						<p:commandButton value="Sim" action="#{usuarioBean.deletar}" ajax="false" oncomplete="dlg.hide();" >						    
+						</p:commandButton>
+						<p:commandButton value="Não" oncomplete="dlg.hide();" />
+					</h:panelGrid>					
+				</h:form>
+			</p:dialog>
+			
+		</h:form>
+	</f:view>
+</h:body>
+</html>
+

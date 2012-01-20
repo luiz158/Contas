@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head>
+	<title>Menu Principal</title>
+</h:head>
+<h:body>
+
+	<f:view>
+		<h:form>
+		   <f:metadata>  
+		         <f:viewParam name="paginaAtualParam"
+					value="#{homeBean.paginaAtual}" />  
+	       </f:metadata>  
+		
+		   <div id="top">
+				<p:menubar>
+					<p:submenu label="Cadastro">
+						<p:menuitem value="Usuários" 
+						            ajax="false"
+						            action="/paginas/usuario/listaUsuarios.xhtml">
+						</p:menuitem>
+						<p:menuitem value="Locais de Pagamento" 
+						            ajax="false"
+						            action="/paginas/localPagamento/listaLocaisPagamento.xhtml">
+						</p:menuitem>
+					</p:submenu>
+					
+					<p:submenu label="Conta Usuário">
+				    	<p:menuitem value="Logout" 
+						            ajax="false"
+						            action="/paginas/login/login.xhtml">
+						</p:menuitem>
+					</p:submenu>
+				</p:menubar>
+			</div>
+
+			<div id="content" class="center_content">
+				<p:panel >
+				<!-- <ui:include src="BoasVindas.xhtml" />  -->	
+				</p:panel>
+			</div>
+			
+			<div id="button">				
+				<p:panel >
+				    <h:outputText value="Levy Moreira - Juazeiro do Norte - CE" style="font-size:11px"/>					
+				</p:panel>
+			</div>
+
+		</h:form>
+
+	</f:view>
+</h:body>
+</html>
+

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head>
+    <!-- <link rel="stylesheet" href="paginas/css/padrao.css" type="text/css"/>   -->
+	<title>Login</title>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+            Login:
+            <p:inputText 
+                id="nome"
+                required="true"
+                requiredMessage="Preenchimento obrigatorio!"
+                value="#{loginBean.usuario.nome}" >
+                <f:validateLength maximum="30" />
+            </p:inputText>           
+						
+			<br />                
+            Senha: 
+            <p:password
+                id="senha"
+                feedback="false"
+                required="true"
+                requiredMessage="Preechimento obrigatorio!"
+                value="#{loginBean.usuario.senha}" >
+                <f:validateLength maximum="30"/>
+            </p:password>
+						
+			<br />
+		  	<p:commandButton value="Entrar" action="#{loginBean.entrar}" ajax="false" />
+		  	
+		  	<p:growl id="growl" showDetail="true" />  
+		</h:form>
+	</f:view>
+</h:body>
+</html>
+
