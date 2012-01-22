@@ -91,6 +91,8 @@ public class HibernateUtil implements java.io.Serializable {
 						.setProperty("hibernate.cache.user_query_cache", "true") //ativa o cache de querys com setCacheable(true)
 						//.setProperty("hibernate.hbm2ddl.auto", "update") aplica alteracoes nas tabelas automaticamente
 						.addAnnotatedClass(Usuario.class)
+						.addAnnotatedClass(Conta.class)
+						.addAnnotatedClass(Parcela.class)
 						.addAnnotatedClass(LocalPagamento.class);
 
 				sessionFactory = configuration.buildSessionFactory();
