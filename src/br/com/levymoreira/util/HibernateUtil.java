@@ -93,6 +93,7 @@ public class HibernateUtil implements java.io.Serializable {
 						.addAnnotatedClass(Usuario.class)
 						.addAnnotatedClass(Conta.class)
 						.addAnnotatedClass(Parcela.class)
+						.addAnnotatedClass(LocalCompra.class)
 						.addAnnotatedClass(LocalPagamento.class);
 
 				sessionFactory = configuration.buildSessionFactory();

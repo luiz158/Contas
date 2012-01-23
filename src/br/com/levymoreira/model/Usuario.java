@@ -25,7 +25,11 @@ public class Usuario implements Serializable {
     /*@Transient
     private int teste; //nao e persistido!*/
     
+    //Constructor defalt
+    
     public Usuario(){}
+    
+    //Constructor
 
     public Usuario(String nome, String senha){
         this.nome = nome;
@@ -33,6 +37,7 @@ public class Usuario implements Serializable {
     }
     
     //Generated equals e hashcode (CTRL + I)
+    
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -56,6 +61,7 @@ public class Usuario implements Serializable {
     }
 
     // Getters and Setters
+    
     public Integer getId() {
         return id;
     }

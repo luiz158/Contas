@@ -9,8 +9,10 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({TesteUsuarioDAO.class, TesteLocalPagamentoDAO.class})
+//@SuiteClasses({TesteUsuarioDAO.class, TesteLocalPagamentoDAO.class})
+@SuiteClasses({Teste.class})
 public class TodosTestes {
+	
 
     @BeforeClass
     public static void setUpClass() throws Exception {

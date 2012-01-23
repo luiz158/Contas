@@ -7,9 +7,10 @@ import br.com.levymoreira.model.*;
 import br.com.levymoreira.util.FacesUtil;
 
 /**
- * Comentar...
- * @author Levy
- *
+ * Bean responsavel por gerenciar as paginas edicaoLocalPagamento e listaLocaisPagamento.
+ * 
+ * @author Levy Moreira
+ * @since 21/01/2012
  */
 public class LocalPagamentoBean {
 	

@@ -42,11 +42,9 @@ public class Conta implements Serializable {
 	@JoinColumn(name="id_local_pagamento")    
 	private LocalPagamento localPagamento; 
 	
-    /* Falta implementar LocalCompra!
-     @ManyToOne()
-  	 @JoinColumn(name="id_local_compra")    
-	 private LocalCompra localCompra; 
-     */	
+    @ManyToOne()
+    @JoinColumn(name="id_local_compra")    
+    private LocalCompra localCompra;      
    
     @Temporal(TemporalType.DATE)
 	@Column(name = "data_compra")	
@@ -58,12 +56,13 @@ public class Conta implements Serializable {
 	
 	//Constructor
 	
-	public Conta(String descricao, Date dataCompra, int totalParcelas, BigDecimal valorTotal, LocalPagamento localPagamento){
+	public Conta(String descricao, Date dataCompra, int totalParcelas, BigDecimal valorTotal, LocalPagamento localPagamento, LocalCompra localCompra){
 		this.descricao = descricao;
 		this.dataCompra = dataCompra;
 		this.totalParcelas = totalParcelas;
 		this.valorTotal = valorTotal;
 		this.localPagamento = localPagamento;
+		this.localCompra = localCompra;
 	}
 	
 	//Getters and Settes
@@ -110,6 +109,14 @@ public class Conta implements Serializable {
 
 	public Integer getId() {
 		return id;
+	}
+
+	public LocalCompra getLocalCompra() {
+		return localCompra;
+	}
+
+	public void setLocalCompra(LocalCompra localCompra) {
+		this.localCompra = localCompra;
 	}	
 	
 }

@@ -21,7 +21,7 @@ public class UsuarioDAO extends DAOGenerico {
      * @param usuario 
      *        Instancia do usuario a ser salvo 
      * @return boolean
-     *         Retorna true caso o usuario tenha sido deletado com sucesso
+     *         Retorna true caso o usuario tenha sido salva com sucesso
      */
     public boolean salvar(Usuario usuario) {
          return salvarOuAlterarPojo(usuario);
@@ -35,7 +35,7 @@ public class UsuarioDAO extends DAOGenerico {
      * @param usuario 
      *        Instancia do usuario a ser deletado
      * @return boolean
-     *         Retorna true caso o usuario tenha sido deletado com sucesso       
+     *         Retorna true caso o registro tenha sido deletado com sucesso       
      */
     public boolean deletar(Usuario usuario) {
         return deletarPojo(usuario);

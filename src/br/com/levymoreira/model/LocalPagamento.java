@@ -20,7 +20,11 @@ public class LocalPagamento implements Serializable {
     @Column(name="descricao", nullable=false, length=50)
     private String descricao;
     
+    //Constructor default
+    
     public LocalPagamento(){}
+    
+    //Constructor
     
     public LocalPagamento(String descricao){
     	this.descricao = descricao;

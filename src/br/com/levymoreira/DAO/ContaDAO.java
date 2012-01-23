@@ -12,14 +12,42 @@ import br.com.levymoreira.model.Conta;
  */
 public class ContaDAO extends DAOGenerico{
 	
+	/**
+     * Salva uma instancia de Conta, que e passada por parametro, no banco de dados.
+     * 
+     * @author Levy Moreira
+     * @since 22/01/2012
+     * @param conta 
+     *        Instancia de uma conta a ser salva 
+     * @return boolean
+     *         Retorna true caso o registro tenha sido salvo com sucesso
+     */
 	public boolean salvar(Conta conta) {
         return salvarOuAlterarPojo(conta);
     }
 	
+	/**
+     * Deleta um local de pagamento que e passado por parametro do banco de dados.
+     * 
+     * @author Levy Moreira
+     * @since 22/01/2012
+     * @param conta 
+     *        Instancia do pojo Conta a ser deletada
+     * @return boolean
+     *         Retorna true caso o registro tenha sido deletado com sucesso       
+     */
 	public boolean deletar(Conta conta) {
         return deletarPojo(conta);
     }
 	
+	/**
+     * Retorna todas as contas cadastrados no banco de dados
+     * 
+     * @author Levy Moreira
+     * @since 22/01/2012
+     * @return ArrayList<Conta> 
+     *         Lista com todas as contas cadastradas
+     */ 
 	public ArrayList<Conta> getTodos(){		
         return getTodos(Conta.class);
     }

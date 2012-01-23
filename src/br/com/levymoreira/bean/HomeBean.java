@@ -2,6 +2,12 @@ package br.com.levymoreira.bean;
 
 import br.com.levymoreira.util.FacesUtil;
 
+/**
+ * Bean responsavel por gerenciar a pagina home.
+ * 
+ * @author Levy Moreira
+ * @since 21/01/2012
+ */
 public class HomeBean {
 	//Variables	
 	private String paginaAtual = "/paginas/BoasVindas.xhtml";
