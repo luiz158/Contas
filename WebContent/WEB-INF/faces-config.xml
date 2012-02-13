@@ -6,8 +6,8 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
     version="2.0">
     
-      <lifecycle>
-    <phase-listener>br.com.levymoreira.util.LifeCycleListener</phase-listener>
+    <lifecycle>
+        <phase-listener>br.com.levymoreira.util.LifeCycleListener</phase-listener>
     </lifecycle>
     
 
@@ -19,6 +19,11 @@
 	<managed-bean>
 		<managed-bean-name>localPagamentoBean</managed-bean-name>
 		<managed-bean-class>br.com.levymoreira.bean.LocalPagamentoBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>usuarioBean</managed-bean-name>
+		<managed-bean-class>br.com.levymoreira.bean.UsuarioBean</managed-bean-class>
 		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>

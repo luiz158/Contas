@@ -20,6 +20,10 @@ public class LoginBean {
 		this.usuario.setSenha("a");
 	}
 	
+	public boolean isLogged(){
+		return usuario.getNome().equals("a");
+	}
+	
 	public String entrar(){
 		String result = "/paginas/login/login.xhtml"; // "/paginas/login/falhaLogin.xhtml";
 		if(usuarioDAO.validarLogin(usuario) != null){

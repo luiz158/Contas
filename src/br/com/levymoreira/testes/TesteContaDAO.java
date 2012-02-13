@@ -1,11 +1,8 @@
 package br.com.levymoreira.testes;
 
-import static org.junit.Assert.assertEquals;
 import java.math.BigDecimal;
 import java.util.Date;
-
 import junit.framework.TestCase;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 import br.com.levymoreira.DAO.ContaDAO;

@@ -74,11 +74,16 @@ public class HibernateUtil implements java.io.Serializable {
 		if (sessionFactory == null) {
 			try {
 				configuration = new AnnotationConfiguration()
-						.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect")
+						/*.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect")
 						.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver")
 						.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/contasDB")
 						.setProperty("hibernate.connection.username", "postgres")
-						.setProperty("hibernate.connection.password", "root")
+						.setProperty("hibernate.connection.password", "root")*/
+				    	.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect")
+		       		    .setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver")
+		       		    .setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/ContasDBMySql")
+	        			.setProperty("hibernate.connection.username", "root")
+		    		    .setProperty("hibernate.connection.password", "root")
 						.setProperty("hibernate.show_sql", "true")
 						.setProperty("hibernate.format_sql", "true")
 						.setProperty("hibernate.c3p0.acquire_increment", "1")

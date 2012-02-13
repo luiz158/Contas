@@ -22,8 +22,8 @@
            <br/>
            <p:password feedback="true" minLength="3" value="#{usuarioBean.usuario.senha}"/>
            <br/>
-           <p:commandButton value="Salvar Edicao" action="#{usuarioBean.salvar}" rendered="#{usuarioBean.estadoEdicao}" ajax="false"/>
-           <p:commandButton value="Salvar Insercao" onclick="dlg.show()"  rendered="#{usuarioBean.estadoInsercao}"/>
+           <p:commandButton value="Salvar" action="#{usuarioBean.salvar}" rendered="#{usuarioBean.estadoEdicao}" ajax="false"/>
+           <p:commandButton value="Salvar" onclick="dlg.show()"  rendered="#{usuarioBean.estadoInsercao}"/>
            <!--  rendered="!#{localPagamentoBean.estadoEdicao} -->
            <h:outputText value=" "/>
            <p:commandButton value="Cancelar" action="#{usuarioBean.cancelarEdicaoInclusao}" ajax="false"/>
