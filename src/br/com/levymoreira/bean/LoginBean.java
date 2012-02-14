@@ -13,22 +13,18 @@ public class LoginBean {
 	//private static final long serialVersionUID = 1L;	
 	private Usuario usuario = new Usuario();
 	private UsuarioDAO usuarioDAO = new UsuarioDAO();
+	private Boolean isLogado = false;
 	
 	public LoginBean(){
-	    //tirar isso quando colocar em producao
-		this.usuario.setNome("a");
-		this.usuario.setSenha("a");
-	}
-	
-	public boolean isLogged(){
-		return usuario.getNome().equals("a");
 	}
 	
 	public String entrar(){
-		String result = "/paginas/login/login.xhtml"; // "/paginas/login/falhaLogin.xhtml";
+		String result = "/paginas/login/login.xhtml"; 
 		if(usuarioDAO.validarLogin(usuario) != null){
+			isLogado = true;
 			result = "/paginas/index.xhtml";
 		}else{
+			isLogado = false;
 			FacesUtil.addInfoMsg("Login inv‡lido!","Usu‡rio ou senha incorreto(s)!");
 		}
 		return result;
@@ -42,6 +38,17 @@ public class LoginBean {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public Boolean getIsLogado() {
+		return isLogado;
+	}
+
+	public void setIsLogado(Boolean isLogado) {
+		if(isLogado == false){ //se setar como nao logado retira o usuario
+			usuario = new Usuario();
+		}
+		this.isLogado = isLogado;
 	}
 	
 }

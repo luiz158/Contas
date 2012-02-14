@@ -1,5 +1,6 @@
 package br.com.levymoreira.util;
 
+import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
@@ -15,15 +16,20 @@ public class LifeCycleListener implements PhaseListener {
 
     public void beforePhase(PhaseEvent event) {   
     	FacesContext faces = event.getFacesContext();
-    	@SuppressWarnings("deprecation")
-		LoginBean bean = (LoginBean) faces.getApplication().getVariableResolver().resolveVariable(faces, "loginBean"); 
-    	if (bean.isLogged()){
-        	System.out.println("logado!");
-        }else{
-        	System.out.println("nao logado!");
-        	//como redirecionar para pagina de log
-        	//NomeDoBeanNoFacesConfig bean = (NomeDoBeanNoFacesConfig) faces.getApplication().getVariableResolver().resolveVariable(faces, "nomeDoBeanNoFacesConfig");  
-        }
+    	if(faces.getViewRoot() != null){
+    	   if (!faces.getViewRoot().getViewId().equals("/paginas/login/login.xhtml")){
+    		   @SuppressWarnings("deprecation") //ver uma solucao nova pra esse velho problema
+    		   LoginBean bean = (LoginBean) faces.getApplication().getVariableResolver().resolveVariable(faces, "loginBean"); 
+    		   if (bean.getIsLogado()){
+    	        	System.out.println("logado!");
+    	       }else{
+    	        	System.out.println("nao logado!");
+    	        	NavigationHandler navigationHandler = faces.getApplication().getNavigationHandler();  
+    	            navigationHandler.handleNavigation( faces, null, "/paginas/login/login.xhtml" );   
+    	            faces.renderResponse();  
+    	       }
+    	    }    	    
+    	}    
        System.out.println("START PHASE " + event.getPhaseId());	
     }
 

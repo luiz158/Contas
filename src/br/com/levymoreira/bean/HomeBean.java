@@ -1,5 +1,7 @@
 package br.com.levymoreira.bean;
 
+import javax.faces.context.FacesContext;
+
 import br.com.levymoreira.util.FacesUtil;
 
 /**
@@ -15,6 +17,15 @@ public class HomeBean {
 	//Constructor default
 	public HomeBean(){
 		System.out.println("Instancia o bean"+ FacesUtil.getInRequestMap("porra"));
+	}
+	
+	//Logout
+	public String logout(){
+		FacesContext faces = FacesContext.getCurrentInstance();  
+		@SuppressWarnings("deprecation") //ver uma solucao nova pra esse velho problema
+		LoginBean loginBean = (LoginBean) faces.getApplication().createValueBinding("#{loginBean}").getValue(faces);  
+		loginBean.setIsLogado(false);
+		return "/paginas/login/login.xhtml";		
 	}
 
 	//Getters and Setters
