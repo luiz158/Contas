@@ -61,6 +61,15 @@ public class Parcela implements Serializable {
 		this.valorParcela = valorParela;
 	}
 	
+	/**
+	 * @author Levy Moreira
+     * @since 10/03/2012
+	 */	
+	@Override
+	public String toString() {
+		return "Parcela: ID-" + this.id;
+	}
+	
 	//Getters and Setters
 
 	public Conta getConta() {

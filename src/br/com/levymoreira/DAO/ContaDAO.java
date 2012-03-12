@@ -1,7 +1,13 @@
 package br.com.levymoreira.DAO;
 
 import java.util.ArrayList;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
+
 import br.com.levymoreira.model.Conta;
+import br.com.levymoreira.model.Parcela;
 
 /**
  * Classe que realiza acessos e logicas relacionadas a banco de dados para o pojo
@@ -50,5 +56,17 @@ public class ContaDAO extends DAOGenerico{
      */ 
 	public ArrayList<Conta> getTodos(){		
         return getTodos(Conta.class);
-    }
+    }	
+
+	/**
+	 * 
+	 * 
+	 * @author Levy Moreira
+     * @since 10/03/2012
+	 * @param id
+	 * @return
+	 */
+	public Conta getContaPorId(int id){
+		return (Conta) getPojo(Conta.class, id);
+	}
 }

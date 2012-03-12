@@ -1,6 +1,12 @@
 package br.com.levymoreira.DAO;
 
 import java.util.ArrayList;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
+
+import br.com.levymoreira.model.Conta;
 import br.com.levymoreira.model.Parcela;
 
 /**
@@ -51,4 +57,18 @@ public class ParcelaDAO extends DAOGenerico{
 	public ArrayList<Parcela> getTodos(){		
         return getTodos(Parcela.class);
     }
+	
+	/**
+	 * 
+	 * 
+	 * @author Levy Moreira
+     * @since 10/03/2012
+	 * @param conta
+	 * @return
+	 */	
+	@SuppressWarnings("unchecked")
+	public ArrayList<Parcela> getParcelasPorConta(Conta conta){
+		return (ArrayList<Parcela>) getCriteria(Parcela.class).add(Restrictions.eq("conta", conta)).list();
+	}
+	
 }
