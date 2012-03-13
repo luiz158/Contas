@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<faces-config
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-    version="2.0">
-    
-    <lifecycle>
-        <phase-listener>br.com.levymoreira.util.LifeCycleListener</phase-listener>
-    </lifecycle>
-    
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+
+	<lifecycle>
+		<phase-listener>br.com.levymoreira.util.LifeCycleListener</phase-listener>
+	</lifecycle>
+
+	<!-- <converter>
+		<converter-id>simpleConverter</converter-id>
+		<converter-class>br.com.levymoreira.util.SimpleConverter</converter-class>
+	</converter>-->
 
 	<managed-bean>
 		<managed-bean-name>loginBean</managed-bean-name>
 		<managed-bean-class>br.com.levymoreira.bean.LoginBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>contaBean</managed-bean-name>
+		<managed-bean-class>br.com.levymoreira.bean.ContaBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>localPagamentoBean</managed-bean-name>
@@ -36,6 +44,7 @@
 		<managed-bean-class>br.com.levymoreira.bean.LocalCompraBean</managed-bean-class>
 		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
+
 	<application>
 		<message-bundle>messages</message-bundle>
 	</application>

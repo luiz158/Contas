@@ -20,7 +20,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-    <!-- paginas/usuario/listaUsuarios.jsf  -->
+    <!-- <welcome-file>paginas/login/login.jsf</welcome-file> -->
         <welcome-file>paginas/login/login.jsf</welcome-file>
     </welcome-file-list>
 </web-app>

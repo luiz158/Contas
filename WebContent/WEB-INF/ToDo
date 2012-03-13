@@ -1,4 +1,8 @@
--Alterar os escopos de session para request nos cruds
--Comentar os beans
--Adicionar um filtro para controle de usuarios
--Adicionar layout padrao com facelets
+-Alterar os escopos de session para request nos cruds - Ok
+-Adicionar um filtro para controle de usuarios - Ok
+-Criar acoes para lancamento de parcelas ao cadastrar uma conta
+-Comentar os beans e metodos que faltarem
+-Adicionar layout padrao com facelets ou CSS
+-Retirar metodos decrapted
+
+

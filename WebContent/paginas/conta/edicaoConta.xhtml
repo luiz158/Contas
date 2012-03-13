@@ -1,10 +1,78 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Conta</title>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:outputLabel value="Alteração de Conta"
+				rendered="#{contaBean.estadoEdicao}" />
+			<h:outputLabel value="Cadastro de Conta"
+				rendered="#{contaBean.estadoInsercao}" />
+			<br />
+           Descricao
+           <br />
+			<p:inputText value="#{contaBean.conta.descricao}" />
+			<br />
+           Valor Total
+           <br />
+			<p:inputText value="#{contaBean.conta.valorTotal}" />
+			<br />           
+           Total de Parcelas
+           <br />
+			<p:inputText value="#{contaBean.conta.totalParcelas}" />
+			<br />
+           Data da Compra
+           <br />
+			<p:calendar value="#{contaBean.conta.dataCompra}"></p:calendar>
+			<br />    
+           Local Compra
+           <br />
+			<p:selectOneMenu value="#{contaBean.localCompraSelecionado.id}" style="width: 320px;" effect="fade">
+				<f:selectItems value="#{contaBean.locaisCompra}" var="c"
+					itemLabel="#{c.descricao}" itemValue="#{c.id}" />
+			</p:selectOneMenu>
+			<br />
+		 	Local Pagamento
+           <br />
+			<p:selectOneMenu value="#{contaBean.localPagamentoSelecionado.id}" style="width: 320px;" effect="fade">
+				<!-- <f:selectItem itemLabel="Escolha o Local do Pagamento..." itemValue=""
+					noSelectionOption="true" />  -->
+				<f:selectItems value="#{contaBean.locaisPagamento}" var="d"
+					itemLabel="#{d.descricao}" itemValue="#{d.id}" />
+			</p:selectOneMenu>
+			<br /> 
 
-</body>
+			<p:commandButton value="Salvar" onclick="dlg.show()"
+				rendered="#{contaBean.estadoInsercao}" />
+			<p:commandButton value="Salvar" action="#{contaBean.salvarESair}"
+				rendered="#{contaBean.estadoEdicao}" ajax="false" />
+
+			<h:outputText value=" " />
+			<p:commandButton value="Cancelar"
+				action="#{contaBean.cancelarEdicaoInclusao}" ajax="false" />
+
+			<!-- Deseja cadastrar outra conta? -->
+			<p:dialog header="Confirmação!" widgetVar="dlg" resizable="false">
+				<h:form>
+				    Deseja cadastrar uma nova Conta?
+					<h:panelGrid columns="2" style="margin-bottom:10px">
+						<p:commandButton value="Sim"
+							action="#{contaBean.salvarEContinuar}" ajax="false"
+							oncomplete="dlg.hide();" />
+						<p:commandButton value="Não" action="#{contaBean.salvarESair}"
+							ajax="false" oncomplete="dlg.hide();" />
+					</h:panelGrid>
+				</h:form>
+		   </p:dialog>
+
+			<p:growl id="growl" showDetail="true" />
+		</h:form>
+	</f:view>
+</h:body>
 </html>

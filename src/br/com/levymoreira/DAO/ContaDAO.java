@@ -1,13 +1,7 @@
 package br.com.levymoreira.DAO;
 
 import java.util.ArrayList;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
-
 import br.com.levymoreira.model.Conta;
-import br.com.levymoreira.model.Parcela;
 
 /**
  * Classe que realiza acessos e logicas relacionadas a banco de dados para o pojo

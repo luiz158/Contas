@@ -112,4 +112,5 @@ public class LocalPagamentoBean {
 		this.localPagamento = localPagamento;
 	}
     
+	
 }

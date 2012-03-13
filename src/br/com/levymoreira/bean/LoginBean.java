@@ -18,7 +18,7 @@ public class LoginBean {
 	public LoginBean(){
 	}
 	
-	public String entrar(){
+	public String entrar(){		
 		String result = "/paginas/login/login.xhtml"; 
 		if(usuarioDAO.validarLogin(usuario) != null){
 			isLogado = true;

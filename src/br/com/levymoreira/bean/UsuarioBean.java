@@ -1,10 +1,7 @@
 package br.com.levymoreira.bean;
 
 import java.util.ArrayList;
-
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-
 import br.com.levymoreira.DAO.UsuarioDAO;
 import br.com.levymoreira.model.*;
 import br.com.levymoreira.util.FacesUtil;
@@ -14,7 +11,7 @@ import br.com.levymoreira.util.FacesUtil;
  * @author Levy
  *
  */
-@ManagedBean(name="usuarioBeanHAHA")
+
 @RequestScoped
 public class UsuarioBean {
 	

@@ -1,22 +1,11 @@
 package br.com.levymoreira.testes;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.Scanner;
-
 import br.com.levymoreira.DAO.ContaDAO;
 import br.com.levymoreira.DAO.LocalCompraDAO;
 import br.com.levymoreira.DAO.LocalPagamentoDAO;
 import br.com.levymoreira.DAO.ParcelaDAO;
 import br.com.levymoreira.DAO.UsuarioDAO;
-import br.com.levymoreira.model.Conta;
-import br.com.levymoreira.model.LocalCompra;
-import br.com.levymoreira.model.LocalPagamento;
-import br.com.levymoreira.model.Parcela;
-import br.com.levymoreira.model.Usuario;
 import br.com.levymoreira.util.HibernateUtil;
 
 public class Main {
