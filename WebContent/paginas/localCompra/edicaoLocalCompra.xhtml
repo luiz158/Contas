@@ -18,7 +18,7 @@
            <br/>
            <p:inputText value="#{localCompraBean.localCompra.descricao}"/>
            <br/>          
-           <p:commandButton value="Salvar" action="#{usuarioBean.salvar}" rendered="#{localCompraBean.estadoEdicao}" ajax="false"/>
+           <p:commandButton value="Salvar" action="#{localCompraBean.salvar}" rendered="#{localCompraBean.estadoEdicao}" ajax="false"/>
            <p:commandButton value="Salvar" onclick="dlg.show()" rendered="#{localCompraBean.estadoInsercao}"/>
            <h:outputText value=" "/>
            <p:commandButton value="Cancelar" action="#{localCompraBean.cancelarEdicaoInclusao}" ajax="false"/>
