@@ -22,10 +22,17 @@
            Valor Total
            <br />
 			<p:inputText value="#{contaBean.conta.valorTotal}" />
-			<br />           
+			<br />
+			<!-- <h:outputText value="Venda a vista " /> -->
+			<p:selectBooleanCheckbox value="#{contaBean.vendaAVista}">
+				<p:ajax update="itTotalParcelas"/>
+			</p:selectBooleanCheckbox>
+			Venda a vista
+			<br />    
            Total de Parcelas
            <br />
-			<p:inputText value="#{contaBean.conta.totalParcelas}" />
+			<p:inputText id="itTotalParcelas" value="#{contaBean.conta.totalParcelas}"
+				disabled="#{contaBean.vendaAVista}" />
 			<br />
            Data da Compra
            <br />
@@ -33,20 +40,22 @@
 			<br />    
            Local Compra
            <br />
-			<p:selectOneMenu value="#{contaBean.localCompraSelecionado.id}" style="width: 320px;" effect="fade">
+			<p:selectOneMenu value="#{contaBean.localCompraSelecionado.id}"
+				style="width: 320px;" effect="fade">
 				<f:selectItems value="#{contaBean.locaisCompra}" var="c"
 					itemLabel="#{c.descricao}" itemValue="#{c.id}" />
 			</p:selectOneMenu>
 			<br />
 		 	Local Pagamento
            <br />
-			<p:selectOneMenu value="#{contaBean.localPagamentoSelecionado.id}" style="width: 320px;" effect="fade">
+			<p:selectOneMenu value="#{contaBean.localPagamentoSelecionado.id}"
+				style="width: 320px;" effect="fade">
 				<!-- <f:selectItem itemLabel="Escolha o Local do Pagamento..." itemValue=""
 					noSelectionOption="true" />  -->
 				<f:selectItems value="#{contaBean.locaisPagamento}" var="d"
 					itemLabel="#{d.descricao}" itemValue="#{d.id}" />
 			</p:selectOneMenu>
-			<br /> 
+			<br />
 
 			<p:commandButton value="Salvar" onclick="dlg.show()"
 				rendered="#{contaBean.estadoInsercao}" />

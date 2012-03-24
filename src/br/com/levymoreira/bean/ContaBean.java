@@ -36,6 +36,7 @@ public class ContaBean {
     private ArrayList<LocalPagamento> locaisPagamento;
     private LocalCompra localCompraSelecionado = new LocalCompra();
     private LocalPagamento localPagamentoSelecionado = new LocalPagamento();
+    private boolean vendaAVista = true;
     
     //Constructor Default ------------------------------------------------------------
     
@@ -45,7 +46,7 @@ public class ContaBean {
         if (FacesUtil.getInRequestMap("contaToEdit") != null) {  
         	conta = (Conta) FacesUtil.getInRequestMap("contaToEdit");
         	localCompraSelecionado = conta.getLocalCompra();
-        	localPagamentoSelecionado = conta.getLocalPagamento();
+        	localPagamentoSelecionado = conta.getLocalPagamento();    		
         }
         if (FacesUtil.getInRequestMap("estado") != null) {   
         	estado = (String) FacesUtil.getInRequestMap("estado");
@@ -82,6 +83,9 @@ public class ContaBean {
     }
     
     private void salvar(){
+    	if(this.vendaAVista == true){
+			this.conta.setTotalParcelas(0);
+		}
     	conta.setLocalCompra(localCompraSelecionado);
     	conta.setLocalPagamento(localPagamentoSelecionado);
     	contaDAO.salvar(conta);
@@ -168,7 +172,19 @@ public class ContaBean {
 	public void setLocaisPagamento(ArrayList<LocalPagamento> locaisPagamento) {
 		this.locaisPagamento = locaisPagamento;
 	}
-	
-	
-	    
+
+	public boolean isVendaAVista() {
+		if(this.conta.getTotalParcelas() > 0){
+			vendaAVista = false;
+		}
+		return vendaAVista;
+	}
+
+	public void setVendaAVista(boolean vendaAVista) {
+		if(vendaAVista == true){
+			this.conta.setTotalParcelas(0);
+		}
+		this.vendaAVista = vendaAVista;
+	}
+		    
 }
