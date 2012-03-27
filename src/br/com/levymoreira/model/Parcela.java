@@ -54,11 +54,12 @@ public class Parcela implements Serializable {
 	
 	//Contructor
 	
-	public Parcela(Date dataPagamento, int numeroParcela, BigDecimal valorParela, BigDecimal valorPago){
-		//this.conta = conta;
+	public Parcela(Conta conta, Date dataPagamento, int numeroParcela, BigDecimal valorParela, BigDecimal valorPago){
+		this.conta = conta;
 		this.numeroParcela = numeroParcela;
 		this.valorPago = valorPago;
 		this.valorParcela = valorParela;
+		this.dataPagamento = dataPagamento;
 	}
 	
 	/**

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<!-- <link rel="stylesheet" href="paginas/css/padrao.css" type="text/css"/>   -->
+	<title>Controle de Pagamentos</title>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+	    	<p:growl id="growl" showDetail="true" />  
+		
+			<p:dataTable var="parcela" value="#{parcelaBean.parcelas}"
+				style="font-size: 70%; width: 600px;" paginator="true" rows="15">
+
+				<f:facet name="header">
+					<h:outputText value="Lista Pagamentos" />					
+				</f:facet>
+
+				<p:column style="width: 60px;">
+					<f:facet name="header">  
+                    Id 
+                    </f:facet>
+					<h:outputText value="#{parcela.id}" />
+				</p:column>
+				<p:column style="width: 100px;"
+				          filterBy="#{parcela.dataPagamento}"   
+                          headerText="Data Pagamento" 
+                          filterMatchMode="startsWith">
+					<f:facet name="header">  
+                    Data Pagamento 
+                    </f:facet>
+					<h:outputText value="#{parcela.dataPagamento}" />
+				</p:column>
+				<p:column style="width: 100px;" 
+				          filterBy="#{parcela.conta.descricao}"   
+                          headerText="Descrição" 
+                          filterMatchMode="contains">
+					
+					<h:outputText value="#{parcela.conta.descricao}" />
+				</p:column>
+				<p:column style="width: 100px;" >
+					<f:facet name="header">  
+                    Local Compra 
+                    </f:facet>
+					<h:outputText value="#{parcela.conta.localCompra.descricao}" />
+				</p:column>
+				<p:column style="width: 100px;">
+					<f:facet name="header">  
+                    Local Pagamento
+                    </f:facet>
+					<h:outputText value="#{parcela.conta.localPagamento.descricao}" />
+				</p:column>
+				<p:column style="width: 100px;">
+					<f:facet name="header">  
+                    Valor Parcela
+                    </f:facet>
+					<h:outputText value="#{parcela.valorParcela}" />
+				</p:column>
+				<p:column style="width: 100px;">
+					<f:facet name="header">  
+                    Valor Pago
+                    </f:facet>
+					<h:outputText value="#{parcela.valorPago}" />
+				</p:column>
+				<p:column style="width: 25px;">
+					<f:facet name="header">  
+                    Ação 
+                    </f:facet>
+					<p:commandLink value="Pagar" action="#{parcelaBean.pagar}"
+						ajax="false">
+						<f:setPropertyActionListener value="#{parcela}"
+							target="#{parcelaBean.parcela}" />
+					</p:commandLink>		
+				</p:column>
+			</p:dataTable>
+			<br/>
+			<p:commandLink ajax="false" value="Menu Principal" action="/paginas/index.xhtml"/>
+						
+		</h:form>
+	</f:view>
+</h:body>
+</html>
+

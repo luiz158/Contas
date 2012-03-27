@@ -64,6 +64,7 @@ public class Conta implements Serializable {
 		this.localPagamento = localPagamento;
 		this.localCompra = localCompra;
 	}
+
 	
 	@Override
 	public int hashCode() {

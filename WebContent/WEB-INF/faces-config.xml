@@ -25,6 +25,11 @@
 		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
+		<managed-bean-name>parcelaBean</managed-bean-name>
+		<managed-bean-class>br.com.levymoreira.bean.ParcelaBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
 		<managed-bean-name>localPagamentoBean</managed-bean-name>
 		<managed-bean-class>br.com.levymoreira.bean.LocalPagamentoBean</managed-bean-class>
 		<managed-bean-scope>view</managed-bean-scope>
