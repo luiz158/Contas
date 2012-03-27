@@ -84,6 +84,9 @@ public class HibernateUtil implements java.io.Serializable {
 		       		    .setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/ContasDBMySql")
 	        			.setProperty("hibernate.connection.username", "root")
 		    		    .setProperty("hibernate.connection.password", "root")
+		    		    /* .setProperty("hibernate.connection.url", "jdbc:mysql://174.142.161.97:3306/levymore_contas")
+	        			.setProperty("hibernate.connection.username", "levymore_root")
+		    		    .setProperty("hibernate.connection.password", "asdf")*/
 						.setProperty("hibernate.show_sql", "true")
 						.setProperty("hibernate.format_sql", "true")
 						.setProperty("hibernate.c3p0.acquire_increment", "1")

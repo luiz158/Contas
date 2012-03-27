@@ -14,11 +14,17 @@
 	    	<p:growl id="growl" showDetail="true" />  
 		
 			<p:dataTable var="parcela" value="#{parcelaBean.parcelas}"
-				style="font-size: 70%; width: 600px;" paginator="true" rows="15">
+				style="font-size: 70%; width: 800px;" paginator="true" rows="15"
+				resizableColumns="true">
 
 				<f:facet name="header">
 					<h:outputText value="Lista Pagamentos" />					
 				</f:facet>
+			
+				
+				<p:column style="width:16px">  
+                    <p:rowToggler />  
+                </p:column> 
 
 				<p:column style="width: 60px;">
 					<f:facet name="header">  
@@ -29,7 +35,8 @@
 				<p:column style="width: 100px;"
 				          filterBy="#{parcela.dataPagamento}"   
                           headerText="Data Pagamento" 
-                          filterMatchMode="startsWith">
+                          filterMatchMode="startsWith"
+                          sortBy="#{parcela.dataPagamento}">
 					<f:facet name="header">  
                     Data Pagamento 
                     </f:facet>
@@ -42,22 +49,15 @@
 					
 					<h:outputText value="#{parcela.conta.descricao}" />
 				</p:column>
-				<p:column style="width: 100px;" >
-					<f:facet name="header">  
-                    Local Compra 
-                    </f:facet>
-					<h:outputText value="#{parcela.conta.localCompra.descricao}" />
+				<p:column style="width: 100px;" 
+				          headerText="Número da Parcela">
+					<h:outputText value="#{parcela.numeroParcela}" />
 				</p:column>
-				<p:column style="width: 100px;">
-					<f:facet name="header">  
-                    Local Pagamento
-                    </f:facet>
-					<h:outputText value="#{parcela.conta.localPagamento.descricao}" />
-				</p:column>
-				<p:column style="width: 100px;">
-					<f:facet name="header">  
-                    Valor Parcela
-                    </f:facet>
+			
+				<p:column style="width: 100px;"
+				          sortBy="#{parcela.valorParcela}"
+				          
+				          headerText="Valor Parcela">
 					<h:outputText value="#{parcela.valorParcela}" />
 				</p:column>
 				<p:column style="width: 100px;">
@@ -76,6 +76,39 @@
 							target="#{parcelaBean.parcela}" />
 					</p:commandLink>		
 				</p:column>
+				
+			    <p:rowExpansion>  
+                   <h:panelGrid id="display" columns="2" cellpadding="4"  
+                        style="width:300px;"  
+                        styleClass="ui-widget-content"  
+                        columnClasses="label, value">  
+  
+                <f:facet name="header">  
+                    Detalhes
+                </f:facet>  
+  
+                <h:outputText value="Descricao:" />  
+                <h:outputText id="model" value="#{parcela.conta.descricao}" />  
+                
+                <h:outputText value="Local Pagamento:" />  
+                <h:outputText value="#{parcela.conta.localPagamento.descricao}" />
+                
+                <h:outputText value="Local Compra:" />  
+                <h:outputText value="#{parcela.conta.localCompra.descricao}" />
+                
+                <h:outputText value="Número da Parcela:" />  
+                <h:outputText value="#{parcela.numeroParcela}" />
+                
+                <h:outputText value="Data da Compra:" />  
+                <h:outputText value="#{parcela.conta.dataCompra}" />
+                
+                <h:outputText value="Data do Pagamento: " />  
+                <h:outputText value="#{parcela.dataPagamento}" />
+                
+            </h:panelGrid>  
+  
+        </p:rowExpansion>  
+        
 			</p:dataTable>
 			<br/>
 			<p:commandLink ajax="false" value="Menu Principal" action="/paginas/index.xhtml"/>
